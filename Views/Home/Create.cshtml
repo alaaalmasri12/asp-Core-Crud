@@ -1,0 +1,40 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+<form asp-action="Create" method="post" asp-controller="Home">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td><label asp-for="ID"></label></td>
+            <td><input class="form-control" placeholder="enter your ID" asp-for="ID" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="EmpName"></label></td>
+            <td><input class="form-control" placeholder="enter employee Name" asp-for="EmpName" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="EmailAddress"></label></td>
+            <td><input class="form-control" placeholder="enter your Email" asp-for="EmailAddress" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Salary"></label></td>
+            <td><input class="form-control" placeholder="enter your salary" asp-for="Salary" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="BOD"></label></td>
+            <td><input class="form-control" placeholder="enter your birth of date" asp-for="BOD" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Country"></label></td>
+            <td><input class="form-control" placeholder="enter your Country" asp-for="Country" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="create" class="btn btn-success" />
+                <a asp-action="AllEmployees" class="btn btn-danger" asp-controller="Home">Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>

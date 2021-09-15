@@ -1,0 +1,38 @@
+﻿@model  Employee
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+<table class="table table-bordered table-hover">
+    <tr>
+        <td><label asp-for="ID"></label></td>
+        <td><input readonly class="form-control" placeholder="enter your ID" asp-for="ID" /></td>
+    </tr>
+    <tr>
+        <td><label asp-for="EmpName"></label></td>
+        <td><input readonly class="form-control" placeholder="enter employee Name" asp-for="EmpName" /></td>
+    </tr>
+    <tr>
+        <td><label asp-for="EmailAddress"></label></td>
+        <td><input readonly class="form-control" placeholder="enter your Email" asp-for="EmailAddress" /></td>
+    </tr>
+    <tr>
+        <td><label asp-for="Salary"></label></td>
+        <td><input readonly class="form-control" placeholder="enter your salary" asp-for="Salary" /></td>
+    </tr>
+    <tr>
+        <td><label asp-for="BOD"></label></td>
+        <td><input readonly class="form-control" placeholder="enter your birth of date" asp-for="BOD" /></td>
+    </tr>
+    <tr>
+        <td><label asp-for="Country"></label></td>
+        <td><input readonly class="form-control" placeholder="enter your Country" asp-for="Country" /></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <a asp-action="AllEmployees" class="btn btn-danger" asp-controller="Home">back</a>
+        </td>
+    </tr>
+</table>
+
