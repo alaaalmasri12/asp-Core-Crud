@@ -1,16 +1,31 @@
 ﻿@model IEnumerable<Employee>
 @{
     ViewData["Title"] = "AllEmployees";
+
 }
+
 
 <h2>Employees Data</h2>
 <style>
-    .createbtn
-    {
-        margin-bottom:3%;
+    .createbtn {
+        margin-bottom: 3%;
     }
 </style>
-<a asp-action="Create"  class="createbtn btn btn-success" asp-controller="Home">Create New Employee</a>
+<form asp-action="AllEmployees" asp-controller="Home" method="post">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="form-group has-search">
+                <span class="fa fa-search form-control-feedback"></span>
+                <input type="text" name="searchterm" class="form-control" placeholder="Search">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="search" class="btn btn-primary" />
+        </div>
+    </div>
+
+</form>
+<a asp-action="Create" class="createbtn btn btn-success" asp-controller="Home">Create New Employee</a>
 <table class="table table-bordered table-hover">
     <tr>
         <th>@Html.DisplayNameFor(model => model.ID)</th>
@@ -24,20 +39,25 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>@item.ID</td>
-        <td>@item.EmpName</td>
-        <td>@item.EmailAddress</td>
-        <td>@item.Salary</td>
-        <td>@item.BOD</td>
-        <td>@item.Country</td>
-        <td>
-            <a href class="btn btn-primary" href="#">EDIT</a>
-            <a asp-route-ID="@item.ID" class="btn btn-danger"  asp-action="Delete"  asp-controller="Home">Delete</a>
-            <a asp-route-ID="@item.ID" asp-action="Details" asp-controller="Home" class="btn btn-info"> More Details</a>
-        </td>
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.EmpName</td>
+            <td>@item.EmailAddress</td>
+            <td>@item.Salary</td>
+            <td>@item.BOD</td>
+            <td>@item.Country</td>
+            <td>
+                <a href class="btn btn-primary" href="#">EDIT</a>
+                <a asp-route-ID="@item.ID" class="btn btn-danger" asp-action="Delete" asp-controller="Home">Delete</a>
+                <a asp-route-ID="@item.ID" data-toggle="modal" data-target="@("#exampleModal"+item.ID)" asp-action="Details" asp-controller="Home" class="btn btn-info"> More Details</a>
+            </td>
 
-    </tr>
-            }
-    </table>
+        </tr>
+    }
+</table>
+@foreach (var item in Model)
+{
+    <partial name="_Detailpartial" model="item" />
+
+}
 

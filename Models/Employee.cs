@@ -8,6 +8,7 @@ namespace Mo3skarTask.Models
     public class Employee
     {
         public int ID { get; set; }
+        public string SearchTerm { get; set; }
         public string EmpName { get; set; }
         public string EmailAddress{ get; set; }
         public decimal Salary { get; set; }

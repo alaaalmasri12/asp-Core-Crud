@@ -2,12 +2,4 @@
 @{
     ViewData["Title"] = "Delete";
 }
-
-<h2>Delete Empoloye  </h2>
-<h1>Are u Sure to delete @Model.EmpName</h1>
-<form asp-action="Delete" method="post" asp-controller="Home">
-<input style="visibility:hidden" class="form-control" placeholder="enter your ID" asp-for="ID" /></td>
- <input type="submit" value="Delete" class="btn btn-danger" />
- <a asp-action="AllEmployees" class="btn btn-warning" asp-controller="Home">Cancel</a>
-          
-</form>
+<partial name="_DeletePopUpPartial" model="Model" />

@@ -9,6 +9,7 @@ namespace Mo3skarTask.Controllers
 {
     public class HomeController : Controller
     {
+      
         static List<Employee> employeeList = new List<Employee>() {
             new Employee
             { ID=1,EmpName="Alaa",EmailAddress="alaaalmasri272@gmail.com"
@@ -24,11 +25,32 @@ namespace Mo3skarTask.Controllers
                 Country ="Jordan",Salary=100,isActive=true}
 
         };
-        public IActionResult AllEmployees()
+        public IActionResult AllEmployees(Employee employee)
         {
 
             return View(employeeList);
         }
+        [HttpPost]
+        public IActionResult AllEmployees(string searchterm)
+        {
+            var SearchResult = (from item in employeeList where item.EmpName.Contains(searchterm) select item);
+           if(searchterm =="")
+            {
+                return View (employeeList);
+            }
+            else  if (SearchResult == null)
+            {
+          List<Employee> employeeList = new List<Employee>();
+                
+                return View(employeeList);
+            }
+           
+            else
+            {
+                return View(SearchResult);
+            }
+        }
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -38,14 +60,14 @@ namespace Mo3skarTask.Controllers
         public IActionResult Create(Employee employee)
         {
             employeeList.Add(employee);
-            return RedirectToAction("AllEmployees");
+            return RedirectToAction("AllEmployees",employee);
         }
 
-        public IActionResult Details(int ID)
+        public  Employee employee (int ID)
         {
             var EmpDetails = (from item in employeeList where item.ID == ID select item).FirstOrDefault();
-
-            return View(EmpDetails);
+            return EmpDetails;
+           
         }
         [HttpGet]
         public IActionResult Delete(int ID)
@@ -68,5 +90,7 @@ namespace Mo3skarTask.Controllers
                 return RedirectToAction("AllEmployees");
             }
         }
+
+
     }
 }

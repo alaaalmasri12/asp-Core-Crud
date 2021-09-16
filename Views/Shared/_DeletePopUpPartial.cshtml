@@ -1,0 +1,40 @@
+﻿@model Employee
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<h2>Delete Empoloye  </h2>
+<form asp-action="Delete" method="post" asp-controller="Home">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        Delete
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Employee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you Sure you want to delete @Model.EmpName</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" id="delete" value="Yes" class="btn btn-danger" />
+                    <a asp-action="AllEmployees" class="btn btn-warning" asp-controller="Home">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input style="visibility:hidden" class="form-control" placeholder="enter your ID" asp-for="ID" />
+</form>
+
+
+<script>
+
+   
+</script>

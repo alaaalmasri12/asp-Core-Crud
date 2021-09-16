@@ -29,3 +29,5 @@ C:\Users\alaa_\OneDrive\Desktop\mo3skar\Mo3skarTask\Mo3skarTask\obj\Debug\netcor
 C:\Users\alaa_\OneDrive\Desktop\mo3skar\Mo3skarTask\Mo3skarTask\obj\Debug\netcoreapp2.1\Razor\Views\Home\Create.g.cshtml.cs
 C:\Users\alaa_\OneDrive\Desktop\mo3skar\Mo3skarTask\Mo3skarTask\obj\Debug\netcoreapp2.1\Razor\Views\Home\Details.g.cshtml.cs
 C:\Users\alaa_\OneDrive\Desktop\mo3skar\Mo3skarTask\Mo3skarTask\obj\Debug\netcoreapp2.1\Razor\Views\Home\Delete.g.cshtml.cs
+C:\Users\alaa_\OneDrive\Desktop\mo3skar\Mo3skarTask\Mo3skarTask\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_DeletePopUpPartial.g.cshtml.cs
+C:\Users\alaa_\OneDrive\Desktop\mo3skar\Mo3skarTask\Mo3skarTask\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Detailpartial.g.cshtml.cs
