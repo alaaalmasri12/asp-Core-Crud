@@ -44,12 +44,12 @@
             <td>@item.EmpName</td>
             <td>@item.EmailAddress</td>
             <td>@item.Salary</td>
-            <td>@item.BOD</td>
+            <td>@item.BOD.ToShortDateString()</td>
             <td>@item.Country</td>
             <td>
                 <a href class="btn btn-primary" href="#">EDIT</a>
-                <a asp-route-ID="@item.ID" class="btn btn-danger" asp-action="Delete" asp-controller="Home">Delete</a>
-                <a asp-route-ID="@item.ID" data-toggle="modal" data-target="@("#exampleModal"+item.ID)" asp-action="Details" asp-controller="Home" class="btn btn-info"> More Details</a>
+                <a class="btn btn-danger" data-toggle="modal" data-target="@("#DeleteModal"+item.ID)">Delete</a>
+                <a  data-toggle="modal" data-target="@("#exampleModal"+item.ID)" class="btn btn-info"> More Details</a>
             </td>
 
         </tr>
@@ -60,4 +60,10 @@
     <partial name="_Detailpartial" model="item" />
 
 }
+@foreach (var item in Model)
+{
+    <partial name="_DeletePopUpPartial" model="item" />
+
+}
+
 

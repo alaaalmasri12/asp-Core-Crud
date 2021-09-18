@@ -33,12 +33,12 @@ namespace Mo3skarTask.Controllers
         [HttpPost]
         public IActionResult AllEmployees(string searchterm)
         {
-            var SearchResult = (from item in employeeList where item.EmpName.Contains(searchterm) select item);
+            var SearchResult = (from item in employeeList where item.EmpName.ToLower().Contains(searchterm.ToLower()) select item);
            if(searchterm =="")
             {
                 return View (employeeList);
             }
-            else  if (SearchResult == null)
+            else  if (searchterm == null)
             {
           List<Employee> employeeList = new List<Employee>();
                 
@@ -69,13 +69,17 @@ namespace Mo3skarTask.Controllers
             return EmpDetails;
            
         }
-        [HttpGet]
-        public IActionResult Delete(int ID)
+        public IActionResult  Delete(int ID)
         {
             var EmpDetails = (from item in employeeList where item.ID == ID select item).FirstOrDefault();
-
             return View(EmpDetails);
+
         }
+        //public IActionResult Delete(int ID)
+        //{
+        //    var EmpDetails = (from item in employeeList where item.ID == ID select item).FirstOrDefault();
+        //    return View(EmpDetails);
+        //}
         [HttpPost]
         public IActionResult Delete(Employee employee)
         {
@@ -86,7 +90,7 @@ namespace Mo3skarTask.Controllers
             }
             else
             {
-                employeeList.RemoveAt(employee.ID);
+                employeeList.Remove(employeeList.Where(x =>  x.ID ==employee.ID).First());
                 return RedirectToAction("AllEmployees");
             }
         }
